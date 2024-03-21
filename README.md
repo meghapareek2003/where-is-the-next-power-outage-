@@ -87,6 +87,8 @@ We decided to groupby state and sort using the most amount of outages and then p
 | Washington |                  89  | intentional attack  |
 | New York   |                  70  | severe weather      |
 
+As seen, California has the most number of power outages and severe weather seems to be the most common cause. The most common cause for most power outages in severe weather. 
+
 
 ## Assessment of Missingness
 
@@ -123,7 +125,8 @@ We computed the p value of approximately 0.346 which does fluctuate each time we
 **Alternative Hypothesis:** There are chances of experiencing severe power outages more frequently in the East North central region on cold days compared to other regions on other days.
 
 The test statistic is the proportion of severe power outages, with our significant level being 0.05. We obtained a p value of 0.00016, which is less than the significance level of 5%. As such, we would reject the null hypothesis. 
-Explanation: Based on the above, we would say that our test statistics and hypothesis effectively meet the standards to respond to the question, where test statistics represent how often we see power outages arising. Under the null hypothesis, we were then able to analyze this from our dataset. Moreover, we were also able to analyze the region in the East North Central on cold days and execute the simulations. Given the large number of simulations, we again noticed that the p-value was less than the significance level. In response to our simulations, we conclude that the occurrence of power outages in the East North Central region was more frequent on cold days and was vital, as well as most likely not caused by chance. 
+
+Based on the above, we would say that our test statistics and hypothesis effectively meet the standards to respond to the question, where test statistics represent how often we see power outages arising. Under the null hypothesis, we were then able to analyze this from our dataset. Moreover, we were also able to analyze the region in the East North Central on cold days and execute the simulations. Given the large number of simulations, we again noticed that the p-value was less than the significance level. Hence, we conclude that the occurrence of power outages in the East North Central region was more frequent on cold days and was vital, as well as most likely not caused by chance. 
 
 
 ## Framing a Prediction Problem
@@ -204,5 +207,10 @@ We are using the difference in mean predictions between the two groups as our te
 Resulting p-value and Conclusion:
 
 The observed difference in mean predictions is 2174.27. The resulting p-value from the permutation test is 0.0. Since the p-value is less than the significance level, we reject the null hypothesis. Therefore, we conclude that there is a significant difference in the mean predicted outage duration between power outages occurring before 2010 and after 2010.
+
+
+## Conclusion
+
+In conclusion, our exploration of power outage durations has revealed valuable insights into the factors influencing outage length and the importance of this knowledge for emergency response and infrastructure resilience. By analyzing patterns and trends in outage data, we have identified opportunities to enhance preparedness, optimize resource allocation, and develop targeted strategies for outage prevention and mitigation. Moving forward, continued research and collaboration are essential to furthering our understanding of outage dynamics and implementing effective measures to minimize the impact of power disruptions on communities and critical infrastructure. 
 
 
