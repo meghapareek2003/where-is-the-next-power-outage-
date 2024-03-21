@@ -19,7 +19,15 @@ Overall, these data cleaning steps aimed to prepare the dataset for subsequent e
 Univariate Analysis:
 
 <iframe
-  src="assets/causes.html"
+  src="assests/climate_category.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+The bar chart illustrates the distribution of climate categories and their potential impact on power outages. 'Normal' emerges as the most prevalent category, indicating that extreme climate conditions may not significantly influence outage frequency. However, it's noteworthy that 'cold' exhibits a slightly higher occurrence compared to 'warm', suggesting a nuanced relationship between climate and outage vulnerability.  This is something we can consider in our model.
+
+<iframe
+  src="assests/causes.html"
   width="800"
   height="600"
   frameborder="0"
