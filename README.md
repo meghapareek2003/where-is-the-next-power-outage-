@@ -16,6 +16,17 @@ Finally, columns containing date and time information were converted to datetime
 
 Overall, these data cleaning steps aimed to prepare the dataset for subsequent exploratory data analysis and modeling. The cleaned DataFrame now exhibits a standardized structure, consistent data types, and appropriately handled missing values, providing a solid foundation for further analysis.
 
+Univariate Analysis:
+
+<iframe
+  src="assets/causes.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+To further see if climate can be one of the causes, we created a bar plot to see the distribution of the cause of power outages. As seen, 'severe weather' is a prominent cause. 
+
 
 ## Assessment of Missingness
 [Discussion on how missing data was handled and its impact on the analysis.]
