@@ -1,1 +1,3 @@
-# where-is-the-next-power-outage-
+# Welcome to My Project!
+
+This project aims to [brief description of the project].
