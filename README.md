@@ -52,7 +52,10 @@ On plotting the mean outage duration by month we realized that August seems to h
 On plotting customers affected per year, we can see how somewhat more customers were affected before the year 2010.
 
 ## Assessment of Missingness
-[Discussion on how missing data was handled and its impact on the analysis.]
+
+We would say that the column DEMAND.LOSS.MW is NMAR. This column shows peak demand lost during an outage. It is NMAR because when we encounter a power outage, it is a hassle and challenging to keep track of the demand that was lost throughout the duration of the outage. It is to be noted that power outages as well as restorations can be an uncertain process. As such, we can’t fully predict and it would make it really difficult to record demand that we lost in a consistent manner. It also makes sense that some of the DEMAND.LOSS.MW column values are missing because if we were to assess an area’s capability to persistently keep track of lost data, we would observe that certain areas are not able to record and report lost demand data.
+
+
 
 ## Hypothesis Testing
 [Explanation of any hypotheses tested during the analysis and their results.]
