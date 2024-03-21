@@ -77,6 +77,17 @@ On plotting the mean outage duration by month we realized that August seems to h
 ></iframe>
 On plotting customers affected per year, we can see how somewhat more customers were affected before the year 2010.
 
+We decided to groupby state and sort using the most amount of outages and then picked the most common cause for those top 5 states. 
+
+| U.S._STATE |   Number of Outages | Most Common Cause   |
+|--------------|---------------------|---------------------|
+| California  |                 198 | severe weather      |
+| Texas         |                 122 | severe weather      |
+| Michigan   |                  95  | severe weather      |
+| Washington |                  89  | intentional attack  |
+| New York   |                  70  | severe weather      |
+
+
 ## Assessment of Missingness
 
 We would say that the column DEMAND.LOSS.MW is NMAR. This column shows peak demand lost during an outage. It is NMAR because when we encounter a power outage, it is a hassle and challenging to keep track of the demand that was lost throughout the duration of the outage. It is to be noted that power outages as well as restorations can be an uncertain process. As such, we can’t fully predict and it would make it really difficult to record demand that we lost in a consistent manner. It also makes sense that some of the DEMAND.LOSS.MW column values are missing because if we were to assess an area’s capability to persistently keep track of lost data, we would observe that certain areas are not able to record and report lost demand data.
@@ -116,7 +127,13 @@ Explanation: Based on the above, we would say that our test statistics and hypot
 
 
 ## Framing a Prediction Problem
-[Description of how the problem of predicting power outages was formulated.]
+The prediction problem we are addressing involves predicting the duration of power outages, which is a regression task. We will be building a regression model using sklearn to tackle this problem.
+
+The response variable in our problem is the OUTAGE.DURATION column of the dataset, representing the duration of each power outage. We chose this variable because it provides crucial information about the severity and impact of power outages, which is essential for effective resource allocation and emergency response planning. Utility companies and policymakers can benefit from accurate predictions of outage durations to prioritize restoration efforts.
+
+To evaluate our regression model, we will be using the F1-score as the evaluation metric. While the F1-score is typically used for classification tasks, we have chosen it in this case to assess the model's performance in predicting outage durations within certain tolerance levels. We can define different tolerance levels for outage duration categories and calculate the F1-score for each category to evaluate the model's overall performance across different durations.
+
+At the time of prediction, we will likely have access to various features that characterize each power outage. Some of these features include the month and year of the outage, the state and climate region where it occurred, anomaly levels, climate categories, and the number of affected customers. These features will be available for prediction as they represent information that can be gathered at the time of outage assessment.
 
 ## Baseline Model
 
@@ -144,7 +161,48 @@ To handle the categorical features in our model, we performed label encoding usi
 
 The performance of our current model, based on the accuracy score obtained using pl_base.score(X_test_base, y_test_base), is approximately 0.09126. This indicates that our model correctly predicts the outage duration around 9.13% of the time on the test set. However, a score of 0.09126 suggests that our model's performance is quite poor. In other words, our current model is not effective in accurately predicting power outage durations based on the selected features.This current baseline model is not good based off this performance.
 
+Our base model results in a F1-score of 0.08646262809610608 which is pretty low and indicates low model performance. 
+
 ## Final Model
-[Description of the final predictive model, its features, and evaluation metrics.]
+Features Added and their Significance:
+
+In our model-building process, we incorporated additional features to enhance predictive accuracy. Firstly, we binarized the ANOMALY.LEVEL feature, simplifying the representation of anomaly levels and potentially capturing nonlinear relationships between anomalies and outage durations. Secondly, we applied QuantileTransformer to the CAUSE.CATEGORY feature, normalizing its distribution and making it less sensitive to outliers. These feature transformations are crucial for improving the model's ability to capture nuanced relationships within the data.
+
+Modeling Algorithm and Hyperparameters:
+
+For our classification task, we selected the RandomForestClassifier algorithm due to its effectiveness in handling complex relationships in multiclass classification problems. Through RandomizedSearchCV, we explored a wide range of hyperparameters to identify the optimal combination for our RandomForestClassifier. The best hyperparameters identified were n_estimators: 300, max_depth: None, min_samples_split: 2, min_samples_leaf: 4, and max_features: log2.
+
+Hyperparameter Selection Method:
+
+We employed RandomizedSearchCV to efficiently search through the hyperparameter space, allowing us to find the optimal combination that maximizes model performance while minimizing computational resources. This method ensured that our model was finely tuned to the characteristics of the dataset, leading to improved predictive accuracy.
+
+Model Performance and Improvement:
+
+Comparing the final model to the baseline, we observed notable improvements in performance. The final model achieved an accuracy of 0.1048 and an F1-score of 0.5383, indicating substantial enhancements over the baseline. These improvements suggest that the additional features and optimized hyperparameters significantly contribute to the model's ability to predict power outage durations accurately.
 
 ## Fairness Analysis
+
+Group X and Group Y:
+
+Group X: Power outages occurring before 2010
+Group Y: Power outages occurring after 2010
+
+Evaluation Metric:
+
+We are evaluating the mean predicted outage duration as our metric.
+
+Null and Alternative Hypotheses:
+
+Null Hypothesis (H0): There is no difference in the mean predicted outage duration between power outages occurring before 2010 and after 2010.
+
+Alternative Hypothesis (H1): There is a significant difference in the mean predicted outage duration between power outages occurring before 2010 and after 2010.
+
+Choice of Test Statistic and Significance Level:
+
+We are using the difference in mean predictions between the two groups as our test statistic. A permutation test will be conducted with a significance level (α) of 0.05.
+
+Resulting p-value and Conclusion:
+
+The observed difference in mean predictions is 2174.27. The resulting p-value from the permutation test is 0.0. Since the p-value is less than the significance level, we reject the null hypothesis. Therefore, we conclude that there is a significant difference in the mean predicted outage duration between power outages occurring before 2010 and after 2010.
+
+
