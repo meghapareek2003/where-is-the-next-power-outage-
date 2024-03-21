@@ -55,6 +55,27 @@ On plotting customers affected per year, we can see how somewhat more customers 
 
 We would say that the column DEMAND.LOSS.MW is NMAR. This column shows peak demand lost during an outage. It is NMAR because when we encounter a power outage, it is a hassle and challenging to keep track of the demand that was lost throughout the duration of the outage. It is to be noted that power outages as well as restorations can be an uncertain process. As such, we can’t fully predict and it would make it really difficult to record demand that we lost in a consistent manner. It also makes sense that some of the DEMAND.LOSS.MW column values are missing because if we were to assess an area’s capability to persistently keep track of lost data, we would observe that certain areas are not able to record and report lost demand data.
 
+To asses the Missingness Dependency of the CUSTOMERS.AFFECTED column, we conducted 2 permutation tests.
+
+In the first test, we want to determine by analyzing if the missingness of the CUSTOMERS.AFFECTED column is dependent on the CAUSE.CATEGORY column.
+
+<iframe
+  src="assests/missingness1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+We computed the p_value as 0.0 and that is less than our significance level. As such, we reject the null hypothesis where we stated that the distribution of "CAUSE.CATEGORY" when "CUSTOMERS.AFFECTED" is missing is the same as the distribution of "CAUSE.CATEGORY" when "CUSTOMERS.AFFECTED" isn't missing. Our conclusion as a result is that the missingness in the "CUSTOMERS.AFFECTED" column is *dependent* on "CAUSE.CATEGORY".
+
+In the second test, we wanted to examine if missingness of the "CUSTOMERS.AFFECTED" column is dependent on the "CLIMATE.CATEGORY" column.
+<iframe
+  src="assests/missingness2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+We computed the p value of approximately 0.346 which does fluctuate each time we run. However the p value is more than our significance level. As a result, we fail to reject the null hypothesis where we stated that the distribution of "CLIMATE.CATEGORY" when "CUSTOMERS.AFFECTED" is missing is the same as the distribution of "CLIMATE.CATEGORY" when "CUSTOMERS.AFFECTED" is not missing. We conclude that the missingness in the "CUSTOMERS.AFFECTED" column is NOT dependent on "CLIMATE.CATEGORY".
 
 
 ## Hypothesis Testing
