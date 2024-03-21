@@ -1,4 +1,5 @@
-# Where is the Next Power Outage?
+# How long is the next power outage? 
+(By Megha Pareek and Eshaan Roy)
 
 ## Introduction
 Welcome to our power outage duration prediction project, where we aim to develop a robust machine learning model capable of accurately forecasting the duration of power outages. This project addresses a critical need in understanding and mitigating the impact of power disruptions by leveraging various features such as climate conditions, outage causes, and temporal factors.
