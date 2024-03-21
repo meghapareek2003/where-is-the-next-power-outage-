@@ -35,6 +35,21 @@ The bar chart illustrates the distribution of climate categories and their poten
 
 To further see if climate can be one of the causes, we created a bar plot to see the distribution of the cause of power outages. As seen, 'severe weather' is a prominent cause. 
 
+Bivariate Analysis
+<iframe
+  src="assests/mean_outage_by_month.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+On plotting the mean outage duration by month we realized that August seems to have the highest outage durations. One intresting observation is that the duration is somewhat cyclical.
+<iframe
+  src="assests/customers_by_year.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+On plotting customers affected per year, we can see how somewhat more customers were affected before the year 2010.
 
 ## Assessment of Missingness
 [Discussion on how missing data was handled and its impact on the analysis.]
