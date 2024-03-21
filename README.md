@@ -79,7 +79,15 @@ We computed the p value of approximately 0.346 which does fluctuate each time we
 
 
 ## Hypothesis Testing
-[Explanation of any hypotheses tested during the analysis and their results.]
+**Question:** Are American states located in the midwest and east more likely to experience significant power outages, lasting 1000 minutes or longer, on cold days?
+
+**Null Hypothesis:** The chances of severe power outage arising in the East North central region on cold days is the same as any other region on other days.
+
+**Alternative Hypothesis:** There are chances of experiencing severe power outages more frequently in the East North central region on cold days compared to other regions on other days.
+
+The test statistic is the proportion of severe power outages, with our significant level being 0.05. We obtained a p value of 0.00019, which is less than the significance level of 5%. As such, we would reject the null hypothesis. 
+Explanation: Based on the above, we would say that our test statistics and hypothesis effectively meet the standards to respond to the question, where test statistics represent how often we see power outages arising. Under the null hypothesis, we were then able to analyze this from our dataset. Moreover, we were also able to analyze the region in the East North Central on cold days and execute the simulations. Given the large number of simulations, we again noticed that the p-value was less than the significance level. In response to our simulations, we conclude that the occurrence of power outages in the East North Central region was more frequent on cold days and was vital, as well as most likely not caused by chance. 
+
 
 ## Framing a Prediction Problem
 [Description of how the problem of predicting power outages was formulated.]
